@@ -4,8 +4,6 @@ using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Services.Dialogs;
 using System;
-using System.Threading;
-using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace CtcontrolMobile.Dialog

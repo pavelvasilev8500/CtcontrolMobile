@@ -124,7 +124,7 @@
     <value>https://github.com/pavelvasilev8500/CtcontrolLaptopDesktop.git</value>
   </data>
   <data name="CtcontrolMobile" xml:space="preserve">
-    <value>https://github.com/pavelvasilev8500/CtcontrolLaptopDesktop.git</value>
+    <value>https://github.com/pavelvasilev8500/CtcontrolMobile.git</value>
   </data>
   <data name="StatusUri" xml:space="preserve">
     <value>http://93.84.86.45:8080/api/StatusData/</value>

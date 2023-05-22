@@ -175,7 +175,7 @@ namespace CtcontrolMobile.ViewModels
 
         private void androidSelect()
         {
-            Device.OpenUri(new Uri(ConnectionData.CtcontrolDesktop));
+            Device.OpenUri(new Uri(ConnectionData.CtcontrolMobile));
         }
 
         private void WindowsSelect()

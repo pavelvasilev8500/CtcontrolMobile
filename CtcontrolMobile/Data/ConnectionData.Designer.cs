@@ -79,7 +79,7 @@ namespace CtcontrolMobile.Data {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на https://github.com/pavelvasilev8500/CtcontrolLaptopDesktop.git.
+        ///   Ищет локализованную строку, похожую на https://github.com/pavelvasilev8500/CtcontrolMobile.git.
         /// </summary>
         public static string CtcontrolMobile {
             get {
