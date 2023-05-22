@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:prism="http://prismlibrary.com"
+            prism:ViewModelLocator.AutowireViewModel="True"
+            xmlns:local="clr-namespace:CtcontrolMobile.Views"
+            xmlns:lang="clr-namespace:CtcontrolMobile.Dictionary.Language"
+            xmlns:svg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+            x:Class="CtcontrolMobile.Views.HistoryView"
+            Title="{Binding Title}">
+
+    <local:LaptopHistoryView IconImageSource="laptop.png" Title="{x:Static lang:AppResources.Laptop}"/>
+    <local:DesctopHistoryView IconImageSource="desktop.png" Title="{x:Static lang:AppResources.Desktop}"/>
+
+</TabbedPage>

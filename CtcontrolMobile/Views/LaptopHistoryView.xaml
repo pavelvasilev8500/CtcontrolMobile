@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:svg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             x:Class="CtcontrolMobile.Views.LaptopHistoryView"
+             BackgroundImageSource="background_dark">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+
+        <CollectionView Grid.Row="0" 
+            ItemsSource="{Binding HistoryData}"
+                        Margin="10">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Orientation="Vertical"
+                                     Margin="10"
+                                     Spacing="20">
+                        <Grid
+                                  HeightRequest="80">
+                            <Frame BackgroundColor="#85515151"
+                                       CornerRadius="10"/>
+                            <StackLayout Orientation="Horizontal"
+                                             Margin="10"
+                                             Spacing="20">
+                                <svg:SvgCachedImage VerticalOptions="Center"
+                                        HorizontalOptions="Center"
+                                        HeightRequest="40"
+                                        Source="{Binding PcType}"/>
+                                <Label Text="{Binding PcName}"
+                                               TextColor="{Binding color}"
+                                               FontSize="15"
+                                               VerticalOptions="Center"
+                                               HorizontalTextAlignment="Center"/>
+                            </StackLayout>
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding SelectLastCommand}"
+                                                        CommandParameter="{Binding PcName}"/>
+                            </Grid.GestureRecognizers>
+                        </Grid>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Grid Grid.Row="1"
+              VerticalOptions="Center"
+              HorizontalOptions="Center">
+            <Button Text="{Binding Clear}"
+                    Command="{Binding ClearHistoryCommand}"/>
+        </Grid>
+
+    </Grid>
+    
+</ContentPage>

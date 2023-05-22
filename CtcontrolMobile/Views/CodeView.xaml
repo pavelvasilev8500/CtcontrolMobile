@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:svg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:local="clr-namespace:CtcontrolMobile.Models"
+             x:Class="CtcontrolMobile.Views.CodeView"
+             Title="{Binding Title}"
+             BackgroundImageSource="background_dark">
+    <StackLayout Orientation="Vertical"
+                 HorizontalOptions="Center"
+                 VerticalOptions="Start"
+                 Margin="0, 50, 0, 0">
+        <Label Text="Ctcontrol Mobile"
+               TextColor="White"
+               FontSize="40"
+               HorizontalTextAlignment="Center">
+            <Label.Effects>
+                <local:ShadowModel Radius="8" 
+                                   DistanceX="0" 
+                                   DistanceY="10" 
+                                   Color="Black"/>
+            </Label.Effects>
+        </Label>
+        <StackLayout Orientation="Horizontal"
+                     HorizontalOptions="Center"
+                     Margin="0, 0, 0, 80">
+        </StackLayout>
+        <Grid>
+            <svg:SvgCachedImage HeightRequest="150"
+                                Source="{Binding PcType}"/>
+            <Editor Placeholder="{Binding Holder}"
+                    PlaceholderColor="White"
+                    BackgroundColor="Transparent"
+                    Text="{Binding Id}"
+                    TextColor="White"
+                    FontSize="20"
+                    MaxLength="50"
+                    Margin="85, 7, 70, 80"
+                    HeightRequest="105"
+                    VerticalOptions="Start"/>
+        </Grid>
+        <StackLayout Orientation="Horizontal"
+                     HorizontalOptions="Center"
+                     VerticalOptions="Center"
+                     Margin="0, 20, 0, 0"
+                     Spacing="20">
+            <Button Text="{Binding Connect}"
+                    HorizontalOptions="Center"
+                    Command="{Binding NavigateCommand}"
+                    CommandParameter="MainDataView"
+                    Margin="0, 20 , 0, 0"/>
+            <Grid Margin="0, 20, 0, 0">
+                <Ellipse Fill="#C72B44"
+                         WidthRequest="50"
+                         HeightRequest="50"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center"/>
+                <svg:SvgCachedImage HeightRequest="30"
+                                    Source="microphone.svg"
+                                    VerticalOptions="Center"/>
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SpeechToTextCommand}"
+                                          CommandParameter="MainDataView"/>
+                </Grid.GestureRecognizers>
+            </Grid>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

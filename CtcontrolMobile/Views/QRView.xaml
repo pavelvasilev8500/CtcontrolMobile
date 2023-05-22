@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+             xmlns:svg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+              xmlns:local="clr-namespace:CtcontrolMobile.Models"
+             x:Class="CtcontrolMobile.Views.QRView"
+             Title="{Binding Title}"
+             BackgroundImageSource="background_dark">
+    <StackLayout Orientation="Vertical"
+                 VerticalOptions="Center"
+                 HorizontalOptions="Center"
+                 Spacing="50">
+        <Grid VerticalOptions="Center"
+              HorizontalOptions="Center"
+              Margin="20, 0, 20, 0">
+            <svg:SvgCachedImage HeightRequest="150"
+                                Source="laptop_input.svg"/>
+            <Editor IsReadOnly="True"
+                        PlaceholderColor="White"
+                    BackgroundColor="Transparent"
+                        Text="{Binding Data}"
+                    TextColor="White"
+                        FontSize="20"
+                        MaxLength="50"
+                    Margin="85, 0, 70, 0"
+                    HeightRequest="95"
+                    VerticalOptions="Start">
+                <Editor.Effects>
+                    <local:ShadowModel Radius="8" 
+                                    DistanceX="0" 
+                                    DistanceY="10" 
+                                    Color="Black"/>
+                </Editor.Effects>
+            </Editor>
+        </Grid>
+        <Grid>
+            <zxing:ZXingScannerView OnScanResult="scanView_OnScanResult"
+                                    IsScanning="True"
+                                    WidthRequest="300"
+                                    HeightRequest="300"
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalOptions="CenterAndExpand"/>
+            <svg:SvgCachedImage HeightRequest="320"
+                                Source="border.svg"/>
+        </Grid>
+        <Grid
+            Margin="20, 0, 20, 0">
+            <Frame BackgroundColor="#C72B44"
+                           CornerRadius="20"
+                           HeightRequest="50"/>
+            <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="Start"
+                                 Margin="50, 0, 0, 0"
+                                 Spacing="20">
+                <svg:SvgCachedImage 
+                                        HeightRequest="50"
+                                        Source="connect.svg"/>
+                <Label Text="{Binding Connect}"
+                                 VerticalOptions="Center"
+                                   HorizontalOptions="Center"
+                           TextColor="{Binding TextColor}"
+                           FontSize="30">
+                    <Label.Effects>
+                        <local:ShadowModel Radius="8" 
+                                               DistanceX="0" 
+                                               DistanceY="10" 
+                                               Color="Black"/>
+                    </Label.Effects>
+                </Label>
+            </StackLayout>
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer  Command="{Binding Navigation}"/>
+            </Grid.GestureRecognizers>
+        </Grid>
+    </StackLayout>
+</ContentPage>

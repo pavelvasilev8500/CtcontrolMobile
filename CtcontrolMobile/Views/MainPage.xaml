@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:svg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+                  Title="Main Page"
+                  x:Name="page"
+                  MasterBehavior="Popover"
+                  x:Class="CtcontrolMobile.Views.MainPage">
+
+    <MasterDetailPage.Master>
+        <ContentPage Title="Menu" 
+                     BackgroundColor="#343844">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0"
+                      HorizontalOptions="End"
+                      VerticalOptions="Center"
+                      HeightRequest="60"
+                      WidthRequest="60"
+                      Margin="15">
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavigateSettingsCommand}"
+                                              CommandParameter="SettingView"/>
+                    </Grid.GestureRecognizers>
+                    <svg:SvgCachedImage VerticalOptions="Center"
+                                        HeightRequest="60"
+                                        Source="setting.svg"/>
+                </Grid>
+                <CollectionView Grid.Row="1"
+                                ItemsSource="{Binding Elements}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid HeightRequest="60">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.1*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0" 
+                                      Padding="13"
+                                      IsVisible="{Binding visible}">
+                                    <Frame BackgroundColor="#C72B44"
+                                           CornerRadius="10"/>
+                                </Grid>
+                                <StackLayout Grid.Column="1" 
+                                             Orientation="Horizontal"
+                                             Spacing="20">
+                                    <Grid HeightRequest="40"
+                                          WidthRequest="40"
+                                          VerticalOptions="Center">
+                                        <svg:SvgCachedImage VerticalOptions="Center"
+                                                            HeightRequest="20"
+                                                            Source="{Binding iamgePath}"/>
+                                    </Grid>
+                                    <Label Text="{Binding pageName}"
+                                           TextColor="White"
+                                           FontSize="15"
+                                           VerticalOptions="Center"
+                                           HorizontalTextAlignment="Center"/>
+                                </StackLayout>
+                                <Button Grid.ColumnSpan="2" 
+                                        CornerRadius="0"
+                                        HeightRequest="50"
+                                        BackgroundColor="{Binding color}"
+                                        Command="{Binding NavigateCommand}"
+                                        CommandParameter="{Binding pagePath}" />
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+        </ContentPage>
+  </MasterDetailPage.Master>
+
+</MasterDetailPage>

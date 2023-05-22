@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CtcontrolMobile.Views.WelcomePage"
+             xmlns:svg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:local="clr-namespace:CtcontrolMobile.Models"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:l="clr-namespace:CtcontrolMobile.Dictionary.Language"
+             Title="{Binding Title}"
+             BackgroundImageSource="background_dark">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="300"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+        <StackLayout Grid.Row="0"
+                     Orientation="Vertical"    
+                     HeightRequest="300"
+                     Spacing="0"
+                     HorizontalOptions="Center"
+                     VerticalOptions="Start"
+                     BackgroundColor="#85515151">
+            <CarouselView ItemsSource="{Binding CarouselData}"
+                          Position="{Binding Position, Mode=TwoWay}"
+                          IndicatorView="indicatorView"
+                          Margin="0, 10, 0, 5"
+                          HeightRequest="250"
+                          Loop="True"
+                          VerticalOptions="Start">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Vertical"
+                                     VerticalOptions="Center">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding SelectCommand}"/>
+                            </StackLayout.GestureRecognizers>
+                            <Label Text="{Binding Title}"
+                                   TextColor="White"
+                                   FontSize="20"
+                                   HorizontalTextAlignment="Center">
+                                <Label.Effects>
+                                    <local:ShadowModel Radius="8" 
+                                                       DistanceX="0" 
+                                                       DistanceY="10" 
+                                                       Color="Black"/>
+                                </Label.Effects>
+                            </Label>
+                            <Label Text="{Binding Subtitle}"
+                                   TextColor="White"
+                                   FontSize="15"
+                                   IsVisible="{Binding SubtitleVisible}"
+                                   HorizontalTextAlignment="Center">
+                                <Label.Effects>
+                                    <local:ShadowModel Radius="8" 
+                                                       DistanceX="0" 
+                                                       DistanceY="10" 
+                                                       Color="Black"/>
+                                </Label.Effects>
+                            </Label>
+                            <Grid HorizontalOptions="Center"
+                                  Margin="10, 0, 0, 0">
+                                <svg:SvgCachedImage VerticalOptions="Start"
+                                                    HorizontalOptions="Center"
+                                                    HeightRequest="100"
+                                                    Source="{Binding ImageContent1}"
+                                                    IsVisible="{Binding ImageContent1Visible}"
+                                                    xct:ShadowEffect.Color="Black"
+                                                    xct:ShadowEffect.Opacity="10"
+                                                    xct:ShadowEffect.OffsetY="1"
+                                                    xct:ShadowEffect.OffsetX="2"
+                                                    xct:ShadowEffect.Radius="20"/>
+                                <StackLayout Orientation="Horizontal"
+                                             HorizontalOptions="Center"
+                                             Margin="0, 10, 10, 10"
+                                             IsVisible="{Binding ImageConten2Visible}">
+                                    <svg:SvgCachedImage VerticalOptions="Start"
+                                                        HeightRequest="50"
+                                                        Source="{Binding ImageContent1}"/>
+                                    <svg:SvgCachedImage VerticalOptions="Start"
+                                                        HeightRequest="50"
+                                                        Source="{Binding ImageContent2}"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal"
+                                             HorizontalOptions="Center"
+                                             Spacing="10"
+                                             Margin="0, 20, 0, 0"
+                                             IsVisible="{Binding ImageContent3Visible}">
+                                    <svg:SvgCachedImage VerticalOptions="Start"
+                                                        HorizontalOptions="Center"
+                                                        HeightRequest="50"
+                                                        Source="{Binding ImageContent1}"/>
+                                    <svg:SvgCachedImage VerticalOptions="Start"
+                                                        HorizontalOptions="Center"
+                                                        HeightRequest="50"
+                                                        Source="{Binding ImageContent2}"/>
+                                    <svg:SvgCachedImage VerticalOptions="Start"
+                                                        HorizontalOptions="Center"
+                                                        HeightRequest="50"
+                                                        Source="{Binding ImageContent3}"/>
+                                </StackLayout>
+                            </Grid>
+                            <Label Text="{Binding ContentText}"
+                                   TextColor="White"
+                                   FontSize="15"
+                                   IsVisible="{Binding ContentTextVisible}"
+                                   HorizontalTextAlignment="Center"
+                                   Margin="0, 5, 0, 5">
+                                <Label.Effects>
+                                    <local:ShadowModel Radius="8" 
+                                                       DistanceX="0" 
+                                                       DistanceY="10" 
+                                                       Color="Black"/>
+                                </Label.Effects>
+                            </Label>
+                            <Grid>
+                                <svg:SvgCachedImage VerticalOptions="Start"
+                                                    HorizontalOptions="Center"
+                                                    HeightRequest="50"
+                                                    Source="{Binding PlatformImage1}"
+                                                    IsVisible="{Binding PlatformImage1Visible}"/>
+                                <StackLayout Orientation="Horizontal"
+                                             HorizontalOptions="Center"
+                                             IsVisible="{Binding PlatformImage2Visible}">
+                                    <svg:SvgCachedImage VerticalOptions="Start"
+                                                        HeightRequest="20"
+                                                        Source="{Binding PlatformImage1}"
+                                                        xct:ShadowEffect.Color="Black"
+                                                        xct:ShadowEffect.Opacity="1"
+                                                        xct:ShadowEffect.OffsetY="1"
+                                                        xct:ShadowEffect.OffsetX="2"
+                                                        xct:ShadowEffect.Radius="20"/>
+                                    <Grid WidthRequest="1" 
+                                          HeightRequest="5"
+                                          BackgroundColor="#00B8FF">
+                                    </Grid>
+                                    <svg:SvgCachedImage VerticalOptions="Start"
+                                                        HeightRequest="20"
+                                                        Source="{Binding PlatformImage2}"
+                                                        xct:ShadowEffect.Color="Black"
+                                                        xct:ShadowEffect.Opacity="1"
+                                                        xct:ShadowEffect.OffsetY="1"
+                                                        xct:ShadowEffect.OffsetX="2"
+                                                        xct:ShadowEffect.Radius="20"/>
+                                </StackLayout>
+                            </Grid>
+                        </StackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+            <IndicatorView x:Name="indicatorView"
+                           IndicatorColor="LightGray"
+                           SelectedIndicatorColor="Black"
+                           HorizontalOptions="Center">
+                <IndicatorView.IndicatorTemplate>
+                    <DataTemplate>
+                        <Label Text="" 
+                               HeightRequest="2" 
+                               WidthRequest="70"/>
+                    </DataTemplate>
+                </IndicatorView.IndicatorTemplate>
+            </IndicatorView>
+        </StackLayout>
+        <StackLayout Grid.Row="1"
+                     Margin="20"
+                     BackgroundColor="Transparent"
+                     Orientation="Vertical"
+                     Spacing="20">
+            <Label Text="{Binding History}"
+                   TextColor="White"
+                   FontSize="20"
+                   HorizontalTextAlignment="Center">
+                <Label.Effects>
+                    <local:ShadowModel Radius="8" 
+                                       DistanceX="0"
+                                       DistanceY="10" 
+                                       Color="Black"/>
+                </Label.Effects>
+            </Label>
+
+            <CollectionView ItemsSource="{Binding HistoryData}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Vertical"
+                                     Margin="10"
+                                     Spacing="20">
+                            <Grid
+                                  HeightRequest="80">
+                                <Frame BackgroundColor="#85515151"
+                                       CornerRadius="10"/>
+                                <StackLayout Orientation="Horizontal"
+                                             Margin="10"
+                                             Spacing="20">
+                                    <svg:SvgCachedImage VerticalOptions="Center"
+                                        HorizontalOptions="Center"
+                                        HeightRequest="40"
+                                        Source="{Binding PcType}"/>
+                                    <Label Text="{Binding PcName}"
+                                               TextColor="{Binding color}"
+                                               FontSize="15"
+                                               VerticalOptions="Center"
+                                               HorizontalTextAlignment="Center"/>
+                                </StackLayout>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SelectLastCommand}"
+                                                        CommandParameter="{Binding PcName}"/>
+                                </Grid.GestureRecognizers>
+                            </Grid>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </StackLayout>
+        <Grid Grid.Row="2"
+              VerticalOptions="End"      
+              HeightRequest="80"
+              Margin="0, 0, 0, 20"
+              BackgroundColor="Transparent">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackLayout Grid.Column="0" 
+                         Orientation="Vertical"
+                         VerticalOptions="Center">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NavigateCommand}"
+                                          CommandParameter="QRView"/>
+                </StackLayout.GestureRecognizers>
+                <svg:SvgCachedImage VerticalOptions="Center"
+                                    HorizontalOptions="Center"
+                                    HeightRequest="40"
+                                    Source="qr_white.svg"/>
+                <Label Text="{Binding QrCode}"
+                       TextColor="White"
+                       HorizontalOptions="Center"/>
+            </StackLayout>
+            <StackLayout Grid.Column="1"
+                         Orientation="Vertical"
+                         VerticalOptions="Center">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NavigateCommand}"
+                                          CommandParameter="CodeView"/>
+                </StackLayout.GestureRecognizers>
+                <svg:SvgCachedImage VerticalOptions="Start"
+                                    HorizontalOptions="Center"
+                                    HeightRequest="40"
+                                    Source="text_white.svg"/>
+                <Label Text="{Binding IdCode}"
+                       TextColor="White"
+                       HorizontalOptions="Center"/>
+            </StackLayout>
+            <StackLayout Grid.Column="2"
+                         Orientation="Vertical"
+                         VerticalOptions="Center">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NavigateCommand}"
+                                          CommandParameter="HistoryView"/>
+                </StackLayout.GestureRecognizers>
+                <svg:SvgCachedImage VerticalOptions="Start"
+                                    HorizontalOptions="Center"
+                                    HeightRequest="40"
+                                    Source="history_white.svg"/>
+                <Label Text="{Binding History}"
+                       TextColor="White"
+                       HorizontalOptions="Center"/>
+            </StackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>

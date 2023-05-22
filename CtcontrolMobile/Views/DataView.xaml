@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:svg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:local="clr-namespace:CtcontrolMobile.Models"
+             x:Class="CtcontrolMobile.Views.DataView"
+             BackgroundImageSource="background_dark">
+    <ScrollView VerticalOptions="Start"
+                HorizontalOptions="Center"
+                Orientation="Vertical">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="300"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <ScrollView Grid.Row="0" 
+                        Orientation="Horizontal"
+                        HorizontalScrollBarVisibility="Never"
+                        VerticalOptions="Start"
+                        HeightRequest="250"
+                        Margin="10"
+                        IsEnabled="{Binding Scroll}">
+                <StackLayout Orientation="Horizontal"
+                             Padding="0, 10, 0, 10"
+                             Spacing="20">
+                    <Grid>
+                        <Frame BackgroundColor="#85515151"
+                               CornerRadius="20"
+                               WidthRequest="140"/>
+                        <Frame BackgroundColor="#C72B44"
+                               VerticalOptions="End"
+                               CornerRadius="20"
+                               WidthRequest="140"
+                               HeightRequest="{Binding CPULevel}"/>
+                        <svg:SvgCachedImage VerticalOptions="Start"
+                                            Margin="0, 20, 0, 0"
+                                            HeightRequest="80"
+                                            Source="cpu.svg"/>
+                        <StackLayout Orientation="Horizontal"
+                                     VerticalOptions="Center"
+                                     HorizontalOptions="Center"
+                                     Margin="0, 60, 0, 0">
+                            <svg:SvgCachedImage VerticalOptions="Center"
+                                                HeightRequest="30"
+                                                Source="tetmomitre.svg"/>
+                            <Label Text="{Binding CPUTemperature}"
+                                   TextColor="White"
+                                   FontSize="30"
+                                   HorizontalTextAlignment="Center">
+                                <Label.Effects>
+                                    <local:ShadowModel Radius="8" 
+                                                       DistanceX="0" 
+                                                       DistanceY="10" 
+                                                       Color="Black"/>
+                                </Label.Effects>
+                            </Label>
+                            <svg:SvgCachedImage VerticalOptions="Center"
+                                                HeightRequest="30"
+                                                Source="celsius.svg"/>
+                        </StackLayout>
+                    </Grid>
+                    <Grid>
+                        <Frame BackgroundColor="#85515151"
+                               CornerRadius="20"
+                               WidthRequest="140"/>
+                        <Frame BackgroundColor="#1B1B24"
+                               VerticalOptions="End"
+                               CornerRadius="20"
+                               WidthRequest="140"
+                               HeightRequest="50"/>
+                        <svg:SvgCachedImage VerticalOptions="Start"
+                                            Margin="0, 30, 0, 0"
+                                            HeightRequest="80"
+                                            Source="gpu.svg"/>
+                        <StackLayout Orientation="Horizontal"
+                                     VerticalOptions="Center"
+                                     HorizontalOptions="Center"
+                                     Margin="0, 60, 0, 0">
+                            <svg:SvgCachedImage VerticalOptions="Center"
+                                                HeightRequest="30"
+                                                Source="tetmomitre.svg"/>
+                            <Label Text="{Binding GPUTemperature}"
+                                   TextColor="White"
+                                   FontSize="30"
+                                   HorizontalTextAlignment="Center">
+                                <Label.Effects>
+                                    <local:ShadowModel Radius="8" 
+                                                       DistanceX="0" 
+                                                       DistanceY="10" 
+                                                       Color="Black"/>
+                                </Label.Effects>
+                            </Label>
+                            <svg:SvgCachedImage VerticalOptions="Center"
+                                                HeightRequest="30"
+                                                Source="celsius.svg"/>
+                        </StackLayout>
+                    </Grid>
+                    <Grid>
+                        <Frame BackgroundColor="#85515151"
+                               CornerRadius="20"
+                               WidthRequest="140"/>
+                        <Frame BackgroundColor="#C72B44"
+                               VerticalOptions="End"
+                               CornerRadius="20"
+                               WidthRequest="140"
+                               HeightRequest="{Binding BatteryLevel}"/>
+                        <svg:SvgCachedImage VerticalOptions="Start"
+                                            Margin="0, 50, 0, 0"
+                                            HeightRequest="50"
+                                            Source="nonchargingbattery.svg"/>
+                        <StackLayout Orientation="Horizontal"
+                                     VerticalOptions="Center"
+                                     HorizontalOptions="Center"
+                                     Margin="0, 60, 0, 0">
+                            <Label Text="{Binding Battery}"
+                                   TextColor="White"
+                                   FontSize="30"
+                                   HorizontalTextAlignment="Center">
+                                <Label.Effects>
+                                    <local:ShadowModel Radius="8" 
+                                                       DistanceX="0" 
+                                                       DistanceY="10" 
+                                                       Color="Black"/>
+                                </Label.Effects>
+                            </Label>
+                        </StackLayout>
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
+            <StackLayout Grid.Row="1" 
+                Orientation="Vertical"
+                         Spacing="20"
+                         Margin="10">
+                <Grid >
+                    <Frame BackgroundColor="#292D39"
+                           CornerRadius="20"
+                           HeightRequest="50"/>
+                    <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="Center"
+                                 Margin="20, 0, 20, 0"
+                                 Spacing="20">
+                        <Grid >
+                            <svg:SvgCachedImage 
+                                        HeightRequest="50"
+                                        Source="calendar.svg"/>
+                            <Label Text="{Binding DateNamber}"
+                                 VerticalOptions="Center"
+                                   HorizontalOptions="Center"
+                           TextColor="White"
+                           FontSize="30">
+                                <Label.Effects>
+                                    <local:ShadowModel Radius="8" 
+                                               DistanceX="0" 
+                                               DistanceY="10" 
+                                               Color="Black"/>
+                                </Label.Effects>
+                            </Label>
+                        </Grid>
+                        <Label Text="{Binding DateMonth}"
+                                 VerticalOptions="Center"
+                                   HorizontalOptions="Center"
+                           TextColor="White"
+                           FontSize="30">
+                            <Label.Effects>
+                                <local:ShadowModel Radius="8" 
+                                               DistanceX="0" 
+                                               DistanceY="10" 
+                                               Color="Black"/>
+                            </Label.Effects>
+                        </Label>
+                        <Label Text="{Binding DateYear}"
+                                 VerticalOptions="Center"
+                           TextColor="White"
+                           FontSize="30">
+                            <Label.Effects>
+                                <local:ShadowModel Radius="8" 
+                                               DistanceX="0" 
+                                               DistanceY="10" 
+                                               Color="Black"/>
+                            </Label.Effects>
+                        </Label>
+                    </StackLayout>
+                </Grid>
+                <Grid >
+                    <Frame BackgroundColor="#343844"
+                           CornerRadius="20"
+                           HeightRequest="50"/>
+                    <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="Start"
+                                 Margin="50, 0, 0, 0"
+                                 Spacing="20">
+                        <svg:SvgCachedImage 
+                                        HeightRequest="50"
+                                        Source="time.svg"/>
+                        <Label Text="{Binding Time}"
+                                 VerticalOptions="Center"
+                                   HorizontalOptions="Center"
+                           TextColor="White"
+                           FontSize="30">
+                            <Label.Effects>
+                                <local:ShadowModel Radius="8" 
+                                               DistanceX="0" 
+                                               DistanceY="10" 
+                                               Color="Black"/>
+                            </Label.Effects>
+                        </Label>
+                    </StackLayout>
+                </Grid>
+                <Grid >
+                    <Frame BackgroundColor="#292D39"
+                           CornerRadius="20"
+                           HeightRequest="50"/>
+                    <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="Start"
+                                 Margin="50, 0, 20, 0"
+                                 Spacing="20">
+                        <Grid >
+                            <svg:SvgCachedImage 
+                                        HeightRequest="55"
+                                        Source="daycelendar.svg"/>
+                            <Label Text="{Binding DateNamber}"
+                                 VerticalOptions="Center"
+                                   HorizontalOptions="Center"
+                           TextColor="White"
+                           FontSize="25"
+                                   Margin="0, 5, 5, 0">
+                                <Label.Effects>
+                                    <local:ShadowModel Radius="8" 
+                                               DistanceX="0" 
+                                               DistanceY="10" 
+                                               Color="Black"/>
+                                </Label.Effects>
+                            </Label>
+                        </Grid>
+                        <Label Text="{Binding Day}"
+                                 VerticalOptions="Center"
+                                   HorizontalOptions="Center"
+                           TextColor="White"
+                           FontSize="30">
+                            <Label.Effects>
+                                <local:ShadowModel Radius="8" 
+                                               DistanceX="0" 
+                                               DistanceY="10" 
+                                               Color="Black"/>
+                            </Label.Effects>
+                        </Label>
+                    </StackLayout>
+                </Grid>
+                <Grid >
+                    <Frame BackgroundColor="#343844"
+                           CornerRadius="20"
+                           HeightRequest="80"/>
+                    <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="Start"
+                                 Margin="20, 0, 0, 0"
+                                 Spacing="20">
+                        <svg:SvgCachedImage 
+                                        HeightRequest="50"
+                                        Source="worktime.svg"/>
+                        <StackLayout Orientation="Vertical"
+                                     VerticalOptions="Center">
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding WorkTimeDay}"
+                                 VerticalOptions="Center"
+                                   HorizontalOptions="Center"
+                           TextColor="White"
+                           FontSize="20">
+                                    <Label.Effects>
+                                        <local:ShadowModel Radius="8" 
+                                               DistanceX="0" 
+                                               DistanceY="10" 
+                                               Color="Black"/>
+                                    </Label.Effects>
+                                </Label>
+                                <Label Text="{Binding WorkTimeHour}"
+                                 VerticalOptions="Center"
+                                   HorizontalOptions="Center"
+                           TextColor="White"
+                           FontSize="20">
+                                    <Label.Effects>
+                                        <local:ShadowModel Radius="8" 
+                                               DistanceX="0" 
+                                               DistanceY="10" 
+                                               Color="Black"/>
+                                    </Label.Effects>
+                                </Label>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding WorkTimeMinut}"
+                                 VerticalOptions="Center"
+                                   HorizontalOptions="Center"
+                           TextColor="White"
+                           FontSize="20">
+                                    <Label.Effects>
+                                        <local:ShadowModel Radius="8" 
+                                               DistanceX="0" 
+                                               DistanceY="10" 
+                                               Color="Black"/>
+                                    </Label.Effects>
+                                </Label>
+                                <Label Text="{Binding WorkTimeSecond}"
+                                 VerticalOptions="Center"
+                                   HorizontalOptions="Center"
+                           TextColor="White"
+                           FontSize="20">
+                                    <Label.Effects>
+                                        <local:ShadowModel Radius="8" 
+                                               DistanceX="0" 
+                                               DistanceY="10" 
+                                               Color="Black"/>
+                                    </Label.Effects>
+                                </Label>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>
